@@ -7,13 +7,13 @@ server:
 
 database:
   driver: "mysql"
-  host: "mysql_test"
+  host: "192.168.100.202"
   port: 3306
-  username: "gostarter"
-  password: "gostarter"
-  name: "db_test"
+  username: "root"
+  password: "Wf3364m!"
+  name: "go_starter"
 
 nsq:
-  host: "nsqd"
+  host: "192.168.100.202"
   port: 4150
 ...

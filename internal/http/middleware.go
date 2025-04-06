@@ -1,12 +1,13 @@
 package http
 
 import (
-	"github.com/labstack/echo/v4"
-	"github.com/labstack/echo/v4/middleware"
-	"github.com/sirupsen/logrus"
 	"go-starter/internal/controller"
 	"net/http"
 	"strings"
+
+	"github.com/labstack/echo/v4"
+	"github.com/labstack/echo/v4/middleware"
+	"github.com/sirupsen/logrus"
 )
 
 type EchoMiddleware struct {
@@ -40,6 +41,8 @@ func (e *EchoMiddleware) JWT(hf echo.HandlerFunc) echo.HandlerFunc {
 		uri := c.Request().RequestURI
 		if strings.Compare(uri, "/") == 0 ||
 			strings.Compare(uri, "/health") == 0 ||
+			strings.HasPrefix(uri, "/test/db/") ||
+			strings.Compare(uri, "/test/list") == 0 ||
 			strings.Contains(uri, "swagger") {
 			return hf(c)
 		}

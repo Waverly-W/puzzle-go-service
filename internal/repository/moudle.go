@@ -7,4 +7,5 @@ import (
 
 var Module = fx.Provide(
 	mysql.NewBusinessGroupRepository,
+	mysql.NewTestRepository,
 )
